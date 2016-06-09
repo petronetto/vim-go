@@ -29,6 +29,8 @@ let NERDTreeAutoCenter = 1
 " Open NERDTree on startup, when no file has been specified
 autocmd VimEnter * if !argc() | NERDTree | endif
 
+let leader = "\\"
+
 " Locate file in hierarchy quickly
 map <leader>T :NERDTreeFind<cr>
 
@@ -137,26 +139,33 @@ let g:neocomplete#force_omni_input_patterns.go = '[^.[:digit:] *\t]\.'
 " Vim-go
 "------------------------------------------------------------------------------
 let g:go_fmt_fail_silently = 1
-let g:go_fmt_command = "gofmt" "Explicited the formater plugin (gofmt, goimports, goreturn...)
+" let g:go_fmt_command = "gofmt" "Explicited the formater plugin (gofmt, goimports, goreturn...)
+let g:go_fmt_command = "goimports"
 
 " Show a list of interfaces which is implemented by the type under your cursor
-au FileType go nmap <Leader>s <Plug>(go-implements)
+au FileType go nmap <leader>s <Plug>(go-implements)
 
 " Show type info for the word under your cursor
-au FileType go nmap <Leader>i <Plug>(go-info)
+au FileType go nmap <leader>i <Plug>(go-info)
 
 " Open the relevant Godoc for the word under the cursor
-au FileType go nmap <Leader>gd <Plug>(go-doc)
-au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
+au FileType go nmap <leader>gd <Plug>(go-doc)
+au FileType go nmap <leader>gds <Plug>(go-doc-split)
 
 " Open the Godoc in browser
-au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
+au FileType go nmap <leader>gb <Plug>(go-doc-browser)
+
+" Rename
+au FileType go nmap <leader>ge <Plug>(go-rename)
 
 " Run/build/test/coverage
 au FileType go nmap <leader>r <Plug>(go-run)
 au FileType go nmap <leader>b <Plug>(go-build)
 au FileType go nmap <leader>t <Plug>(go-test)
 au FileType go nmap <leader>c <Plug>(go-coverage)
+
+" GoVet
+au FileType go nmap <leader>gv <Plug>(go-vet)
 
 " By default syntax-highlighting for Functions, Methods and Structs is disabled.
 " Let's enable them!
