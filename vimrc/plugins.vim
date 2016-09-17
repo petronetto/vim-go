@@ -145,6 +145,12 @@ let g:go_fmt_command = "goimports"
 " Show a list of interfaces which is implemented by the type under your cursor
 au FileType go nmap <leader>s <Plug>(go-implements)
 
+au FileType go nmap <leader>cs <Plug>(go-callstack)
+
+au FileType go nmap <leader>d <Plug>(go-describe)
+
+au FileType go nmap <leader>gv <Plug>(go-metalinter)
+
 " Show type info for the word under your cursor
 au FileType go nmap <leader>i <Plug>(go-info)
 
@@ -163,9 +169,6 @@ au FileType go nmap <leader>r <Plug>(go-run)
 au FileType go nmap <leader>b <Plug>(go-build)
 au FileType go nmap <leader>t <Plug>(go-test)
 au FileType go nmap <leader>c <Plug>(go-coverage)
-
-" GoVet
-au FileType go nmap <leader>gv <Plug>(go-vet)
 
 " By default syntax-highlighting for Functions, Methods and Structs is disabled.
 " Let's enable them!
