@@ -69,6 +69,8 @@ let g:syntastic_always_populate_loc_list = 0
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_go_checkers = ['go', 'govet']
+
 
 "------------------------------------------------------------------------------
 " NeoComplete
@@ -169,6 +171,7 @@ au FileType go nmap <leader>r <Plug>(go-run)
 au FileType go nmap <leader>b <Plug>(go-build)
 au FileType go nmap <leader>t <Plug>(go-test)
 au FileType go nmap <leader>c <Plug>(go-coverage)
+au FileType go nmap <leader>gi <Plug>(go-install)
 
 " By default syntax-highlighting for Functions, Methods and Structs is disabled.
 " Let's enable them!
