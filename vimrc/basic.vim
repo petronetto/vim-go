@@ -14,8 +14,8 @@ filetype indent on
 
 " With a map leader it's possible to do extra key combinations
 " like <leader>w saves the current file
-let mapleader = ","
-let g:mapleader = ","
+let mapleader = ";"
+let g:mapleader = ";"
 
 " Fast saving
 map <Leader>w :w<CR>
@@ -301,7 +301,7 @@ set viminfo^=%
 set laststatus=2
 
 " Format the status line
-" set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
+set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
 
 
 "------------------------------------------------------------------------------

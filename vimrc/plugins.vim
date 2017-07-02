@@ -14,7 +14,6 @@ endtry
 "------------------------------------------------------------------------------
 " NERDTree
 "------------------------------------------------------------------------------
-
 " General properties
 let NERDTreeDirArrows=1
 let NERDTreeMinimalUI=1
@@ -23,7 +22,6 @@ let NERDTreeWinSize = 35
 
 " Make sure that when NT root is changed, Vim's pwd is also updated
 let NERDTreeChDirMode = 2
-let NERDTreeShowLineNumbers = 1
 let NERDTreeAutoCenter = 1
 
 " Open NERDTree on startup, when no file has been specified
@@ -41,15 +39,31 @@ nmap <leader>o :NERDTreeToggle<cr>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 
-
 "------------------------------------------------------------------------------
 " BufExplorer
 "------------------------------------------------------------------------------
-
 " Shortcuts, type <leader>l to quickly navigate to necessary buffer
 map <leader>l :BufExplorer<cr>
 imap <leader>l <esc>:BufExplorer<cr>
 vmap <leader>l <esc>:BufExplorer<cr>
+
+"------------------------------------------------------------------------------
+" CtrlP
+"------------------------------------------------------------------------------
+" Exclude files and directories using Vim's wildignore and CtrlP's own g:ctrlp_custom_ignore
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
+
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+  \ 'file': '\v\.(exe|so|dll)$',
+  \ 'link': 'some_bad_symbolic_links',
+  \ }
+
+" Change the default mapping and the default command to invoke CtrlP:
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
 
 
 "------------------------------------------------------------------------------
@@ -79,7 +93,6 @@ let g:syntastic_go_checkers = ['go', 'govet']
 "------------------------------------------------------------------------------
 " NeoComplete
 "------------------------------------------------------------------------------
-
 " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
 
@@ -211,3 +224,49 @@ let g:tagbar_type_go = {
     \ 'ctagsbin'  : 'gotags',
     \ 'ctagsargs' : '-sort -silent'
 \ }
+
+"------------------------------------------------------------------------------
+" vim-airline
+"------------------------------------------------------------------------------
+" Theme
+let g:airline_theme = 'powerlineish'
+let g:airline#extensions#syntastic#enabled = 1
+let g:airline#extensions#branch#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tagbar#enabled = 1
+let g:airline_skip_empty_sections = 1
+
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+
+if !exists('g:airline_powerline_fonts')
+  let g:airline#extensions#tabline#left_sep = ' '
+  let g:airline#extensions#tabline#left_alt_sep = '|'
+  let g:airline_left_sep          = '▶'
+  let g:airline_left_alt_sep      = '»'
+  let g:airline_right_sep         = '◀'
+  let g:airline_right_alt_sep     = '«'
+  let g:airline#extensions#branch#prefix     = '⤴' "➔, ➥, ⎇
+  let g:airline#extensions#readonly#symbol   = '⊘'
+  let g:airline#extensions#linecolumn#prefix = '¶'
+  let g:airline#extensions#paste#symbol      = 'ρ'
+  let g:airline_symbols.linenr    = '␊'
+  let g:airline_symbols.branch    = '⎇'
+  let g:airline_symbols.paste     = 'ρ'
+  let g:airline_symbols.paste     = 'Þ'
+  let g:airline_symbols.paste     = '∥'
+  let g:airline_symbols.whitespace = 'Ξ'
+else
+  let g:airline#extensions#tabline#left_sep = ''
+  let g:airline#extensions#tabline#left_alt_sep = ''
+
+  " powerline symbols
+  let g:airline_left_sep = ''
+  let g:airline_left_alt_sep = ''
+  let g:airline_right_sep = ''
+  let g:airline_right_alt_sep = ''
+  let g:airline_symbols.branch = ''
+  let g:airline_symbols.readonly = ''
+  let g:airline_symbols.linenr = ''
+endif
