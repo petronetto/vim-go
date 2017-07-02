@@ -9,12 +9,16 @@ Quite simply this is a vim configuration which will setup all the necessary Go d
 
 Fork the repo, and then clone it to `~/.vim_go_runtime`. Once done, just run installation script:
 
-    git clone git@github.com:Bo0mer/vim-go-ide.git ~/.vim_go_runtime
+    git clone git@github.com:petronetto/vim-go.git ~/.vim_go_runtime
     sh ~/.vim_go_runtime/bin/install
 
 **NOTE:** You system's Vim configuration will NOT be changed i.e. it is safe to install.
 
-**REQUIREMENT:** vim-go-ide uses [pathogen](https://github.com/tpope/vim-pathogen) to manage plugins. You need to have pathogen installed on your machine (see https://github.com/farazdagi/vim-go-ide/issues/12).
+**REQUIREMENT:** vim-go-ide uses [pathogen](https://github.com/tpope/vim-pathogen) to manage plugins. You need to have pathogen installed on your machine:
+
+    mkdir -p ~/.vim/autoload ~/.vim/bundle
+    curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+
 
 ### 2. Run your newly installed Vim configuration:
 
@@ -32,7 +36,7 @@ In order for the [amazing vim-go](https://github.com/fatih/vim-go) to be most us
 
 ### 4. End-result:
 
-![Screenshot](https://raw.githubusercontent.com/farazdagi/vim-go-ide/master/screenshot.png)
+![Screenshot](https://raw.githubusercontent.com/petronetto/vim-go/master/screenshot.png)
 
 Yep, that's it! 
 
