@@ -37,6 +37,10 @@ map <leader>T :NERDTreeFind<cr>
 " Toogle on/off
 nmap <leader>o :NERDTreeToggle<cr>
 
+" Close VIM if the only window left open is a NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+
 
 "------------------------------------------------------------------------------
 " BufExplorer
