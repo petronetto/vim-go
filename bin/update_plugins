@@ -22,6 +22,7 @@ neosnippet.vim https://github.com/Shougo/neosnippet.vim
 nerdcommenter https://github.com/scrooloose/nerdcommenter
 nerdtree https://github.com/scrooloose/nerdtree
 nerdtree-git-plugin https://github.com/Xuyuanp/nerdtree-git-plugin.git
+nerdtree-space-keys https://github.com/jballanc/nerdtree-space-keys
 syntastic https://github.com/scrooloose/syntastic
 tagbar https://github.com/majutsushi/tagbar
 vim-airline https://github.com/vim-airline/vim-airline
